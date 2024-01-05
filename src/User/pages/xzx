@@ -1,0 +1,766 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function Cards() {
+  return (
+    <>
+   <div className="grid lg:grid-cols-4 gap-4 mx-8">
+    {/* 1 */}
+      <div className="w-[300px] rounded-md border">
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Freelancing"
+          className="h-[200px] w-full rounded-t-md object-cover"
+        />
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          Freelancing
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          <p className="truncate mt-3 text-sm text-gray-600">
+          This course is meant to teach the tips and tricks of freelancing in the simplest and effective way. The do`s and don`ts are discussed
+          </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #Freelancing
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <Link to="/detail">
+  <button
+    type="button"
+    className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+  >
+    View Detail
+  </button>
+</Link>
+
+
+          {/* <Link to = {'/detail'}>
+  
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+          </link> */}
+        </div>
+      </div>
+{/* 2 */}
+<div className="w-[300px] rounded-md border">
+        <img
+          src="https://www.simplilearn.com/ice9/free_resources_article_thumb/What_is_digital_marketing.jpg"
+          alt="Digital Marketing"
+          className="h-[200px] w-full rounded-t-md object-cover"
+        />
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          Digital Marketing
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          
+          <p className="truncate mt-3 text-sm text-gray-600">
+        This course aims to provide trainees a deeper understanding of planning of a digital marketing campaign and the role of various digital channels in achieving that goal through integrated marketing communication. It starts by building a foundation through digital marketing strategy and helps trainees to acquire a set of concepts and tools to digitally create, distribute and promote products and services          </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #digitalMarketing
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+        </div>
+      </div>
+{/* 3 */}
+<div className="w-[300px] rounded-md border">
+        <img
+          src="https://nise.org.pk/wp-content/uploads/2017/02/Graphic-Designing1.jpg"
+          alt="Graphic Design"
+          className="h-[200px] w-full rounded-t-md object-cover"
+        />
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          Graphic Design
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          <p className="truncate mt-3 text-sm text-gray-600">
+          Graphic Design, also known as communication design, is the art and practice of planning and projecting ideas and experiences with visual and textual content. This course is focused on both theoretical and practical parts. The aim of the course is to develop design sense in trainees by the help of theoretical concepts and practice.          </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #GraphicDesign
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+        </div>
+      </div>
+      {/* 4 */}
+      <div className="w-[300px] rounded-md border">
+        <img
+  src="https://cdn.fordhamram.com/wp-content/uploads/Best-Free-Paid-Online-Video-Editing-Course.png"
+  alt="Video Editing, Animation and Vlogging"
+  className="h-200 w-full rounded-t-md object-cover"/>
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          Video Editing, Animation and Vlogging
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          <p className="truncate mt-3 text-sm text-gray-600">
+          The course is aimed to familiarize students with the art of Video Post-Production that is the need of current Broadcast and Digital Media Industry. It is going to be productive as well as practical course so that the learners can excel in their respective fields. This intensive practice based course will encourage students to understand from basics to advance video editing, motion graphics and Vlogging skills. They will also be able to identify and discover different Production/Post production practices and develop their own style.
+ </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #VideoEditing
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+        </div>
+    
+      </div>
+      {/* 5 */}
+      <div className="w-[300px] rounded-md border">
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="SEO (Search Engine Optimization)"
+          className="h-[200px] w-full rounded-t-md object-cover"
+        />
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          SEO (Search Engine Optimization)
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          
+          <p className="truncate mt-3 text-sm text-gray-600">
+          Search Engine Optimization (SEO) empowers a business to rank higher in search engine results which helps in reaching a wider audience. Humans are inquisitive in nature and they search for answers all the time. This was made easier with the advent of technology and Google has become the go-to search engine for Billions of people all around the world. This can be achieved by understanding how Google search engine works and how it ranks websites. This course is the key to understand one of the most important skills in Digital Marketing. If businesses can learn to rank their websites on Google, then they can literally expect millions of visitors to their website with millions of opportunities to get leads and sales.       </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #SEO
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+        </div>
+      </div>
+    {/* 6 */}
+    <div className="w-[300px] rounded-md border">
+        <img
+          src="https://www.seoclerk.com/pics/000/872/094/3b1d7e4ae14bd472645a004040bca8c5.jpg"
+          alt="WordPress"
+          className="h-[200px] w-full rounded-t-md object-cover"
+        />
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          WordPress
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          <p className="truncate mt-3 text-sm text-gray-600">
+          WordPress is an Open Source software system used by millions of people worldwide to create beautiful & responsive websites and blogs. It is entirely customizable by using themes and plugins.
+          </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #WordPress
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+        </div>
+      </div>
+{/* 7 */}
+<div className="w-[300px] rounded-md border">
+        <img
+          src="https://softskillsguide.com/wp-content/uploads/2021/09/communications-01-1200w.jpg"
+          alt="Communication and Soft Skills"
+          className="h-200 w-full rounded-t-md object-cover"
+        />
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          Communication and Soft Skills
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          <p className="truncate mt-3 text-sm text-gray-600">
+          This course is designed to equip freelancers with the most essential communication skills and tools needed to establish themselves in the international market. The course is divided into three components: English Language, Communication and Soft Skills.
+
+          </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #Communication
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+        </div>
+      </div>
+      {/* 8 */}
+      <div className="w-[300px] rounded-md border">
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Affiliate Marketing"
+          className="h-200 w-full rounded-t-md object-cover"
+        />
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          Affiliate Marketing
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          <p className="truncate mt-3 text-sm text-gray-600">
+        Affiliate Marketing course is designed for all those who want to create highly profitable affiliate sites and flip them.
+
+          </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #AffiliateMarketing
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+        </div>
+      </div>
+      {/* 9 */}
+      <div className="w-[300px] rounded-md border">
+        <img
+          src="https://www.ashrafchaudhry.com/cdn/shop/products/virtualassistant_800x.jpg?v=1673790371"
+          alt="Virtual Assistant"
+          className="h-200 w-full rounded-t-md object-cover"
+        />
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          Virtual Assistant
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          <p className="truncate mt-3 text-sm text-gray-600">
+          This course is specially designed for the trainees who want to learn and earn as a Virtual Assistant on Amazon as well as on eBay and other such platforms; or for those who want to launch a product either for themselves or for someone else. By completing this course, you shall better understand Amazon''''s & eBay’s capabilities as a virtual assistant.
+
+          </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #VirtualAssistant
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+        </div>
+      </div>
+{/* 10 */}
+<div className="w-[300px] rounded-md border">
+        <img
+          src="https://www.spec-india.com/wp-content/uploads/2023/10/Business-Intelligence-vs-Data-Analytics.jpg"
+          alt="Data Analytics and Business Intelligence"
+          className="h-200 w-full rounded-t-md object-cover"
+        />
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          Data Analytics and Business Intelligence
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          <p className="truncate mt-3 text-sm text-gray-600">
+          In today’s world, a major function of a business analyst, is to help make decisions based on available market information. Success of a business and organization depends heavily on sound, correct and timely decisions. Data Analytics & business intelligence have always played an important role in enhancing the viability of decisions. However, with recent development in information technology, the role of data analytics and business intelligence in decision making has increased manifold. More and more business analysts are using such techniques to complement their experience and expertise in business world.
+
+          </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #M.B.A
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+        </div>
+      </div>
+{/* 11 */}
+<div className="w-[300px] rounded-md border">
+        <img
+          src="https://img.freepik.com/premium-photo/creative-writing-text-notebook_861973-5109.jpg"
+          alt="Creative Writing"
+          className="h-200 w-full rounded-t-md object-cover"
+        />
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          Creative Writing
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          <p className="truncate mt-3 text-sm text-gray-600">
+          Writing is a vast field and every sub-category of this field has its own unique writing format. This course is aimed at aspiring writers who want to familiarize themselves with this field and want to pursue writing as a career. It will provide a set of guidelines that will eventually help learners navigate the freelance world as writers. Throughout the duration of this course, trainees will learn about fiction/nonfiction writing, copywriting, social media writing, business writing, UX writing and much more. This course also covers some basics of Language Arts including grammar, vocabulary, parts of speech and common errors in writing, etc. Some parts of this course will also focus on enhancing thinking conceptually, improving observation and analytical skills so that learners can produce richer textual content.
+
+          </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #CreativeWriting
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+        </div>
+      </div>
+{/* 12 */}
+<div className="w-[300px] rounded-md border">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJCYyDSGFITpLNxQGFGtUzi_0C-lwq6MkbpQ&usqp=CAU"
+          alt="E-Commerce Management"
+          className="h-200 w-full rounded-t-md object-cover"
+        />
+        <div className="p-4">
+          <h1 className="inline-flex items-center text-lg font-semibold">
+          E-Commerce Management
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </h1>
+          <p className="truncate mt-3 text-sm text-gray-600">
+          Ever wondered how people could sell without a shop? Even if you have zero knowledge of e-commerce, this course entails covering all concepts from basic to advance e-commerce. What is Shopify? What is WooCommerce? How do you setup an online store? What are the payment gateways? What are the marketing methods to promote your e-commerce website? How to setup a store on Daraz? How to drive traffic using Google Ads, Facebook Ads and SEO? All this and more in this exclusive course on e-commerce management.
+
+          </p>
+          <div className="mt-4">
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #E-CommerceManagement
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #free
+            </span>
+            <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+              #course
+            </span>
+          </div>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            View Detail
+          </button>
+        </div>
+      </div>
+      </div>
+    </>
+  );
+}
+
+export default Cards;
+
+
+Detail
+
+{/* <div className="w-full px-20">
+        <h2 className="text-3xl font-bold mb-6">About</h2>
+
+        <p className="mb-6">
+          This course is designed to provide comprehensive insights into the world of freelancing, offering practical tips and tricks for success. It covers essential do's and don'ts that every freelancer should be aware of. The course introduces various freelance marketplaces, with in-depth discussions on platforms like Fiverr, Upwork, and Freelancer. Trainees will learn how to effectively navigate these portals to maximize their earning potential.
+        </p>
+
+        <h3 className="text-2xl font-bold mb-10">Meet The Trainer(s)</h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+
+          {
+            trainers.map((trainer, key) => <Trainer key={key} trainer_name={trainer.trainer_name} desc={trainer.desc} />)
+          }
+
+
+
+          
+        </div>
+      </div> */}
+
+
+      Detail.jsx 
+      import Trainer from "../components/Trainer"
+
+
+export default function Detail() {
+
+  const trainers = [
+    {
+      trainer_name: "Hisham Sarwar",
+      desc: "Hisham Sarwar is a seasoned freelancer and a visionary leader. As the founder of Infomist, he has played a key role in its growth from a small startup to a successful outsource company. With a background in business administration and artificial intelligence, Hisham is a tech social entrepreneur dedicated to giving back to the community. His notable projects include Rozgar Pakistan, BeingGuru, and TrueDrops."
+    },
+    {
+      trainer_name: "Irfan Malik",
+      desc: " Irfan Malik, a TOP RATED PLUS freelancer at Upwork, has earned over $1 million by providing tech services. Despite humble beginnings, Irfan worked his way up from an office tea boy to a successful entrepreneur. Representing the top 3 percent of performers on Upwork, he emphasizes the importance of skill set in overcoming challenges. As the founder and CEO of Xeven Solutions, he has led the company's expansion to 150 team members and two global offices in just five years."
+    }
+  ]
+  return (
+    <>
+      <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+        <img
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
+          alt=""
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
+        />
+        <div
+          className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
+          aria-hidden="true"
+        >
+          <div
+            className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+            style={{
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+            }}
+          />
+        </div>
+        <div
+          className="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
+          aria-hidden="true"
+        >
+          <div
+            className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+            style={{
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+            }}
+          />
+        </div>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:mx-0">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              Freelance
+            </h2>
+          </div>
+        </div>
+
+      </div>
+
+      <div className="flex m-20 gap-10">
+        <iframe
+          width={560}
+          height={315}
+          src="https://www.youtube.com/embed/videoseries?list=PLHi_NUJDIGWIU1-pPxaiVLNFwtX2Z2wwJ"
+          title="YouTube Playlist"
+          frameBorder={0}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen=""
+        />
+
+        <div>
+          anoither
+        </div>
+
+      </div>
+
+      
+     <div className="w-full px-20">
+        <h2 className="text-3xl font-bold mb-6">About</h2>
+
+        <p className="mb-6">
+          This course is designed to provide comprehensive insights into the world of freelancing, offering practical tips and tricks for success. It covers essential do's and don'ts that every freelancer should be aware of. The course introduces various freelance marketplaces, with in-depth discussions on platforms like Fiverr, Upwork, and Freelancer. Trainees will learn how to effectively navigate these portals to maximize their earning potential.
+        </p>
+
+        <h3 className="text-2xl font-bold mb-10">Meet The Trainer(s)</h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+
+          {
+            trainers.map((trainer, key) => <Trainer key={key} trainer_name={trainer.trainer_name} desc={trainer.desc} />)
+          }
+
+
+
+          
+        </div>
+      </div>
+
+
+
+    </>
+  )
+}
+
+
+ <button
+                            type="submit"
+                            className="bg-gradient-to-r from-yellow-500 to-yellow-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-600 hover:to-yellow-600 transition ease-in-out duration-150"
+                        >
+                            Signup
+                        </button>
+
+
+                        <button
+                type="submit"
+             
+                className="bg-gradient-to-r from-yellow-500 to-yellow-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-yellow-600 hover:to-yellow-600 transition ease-in-out duration-150"
+              >
+                Login
+              </button>
+
+/button>
+
+
+{
+    "title": "Freelancing",
+    "instructor": "Sir Hisham Sarwar",
+    "description": "A seasoned freelancer has always been known to be an independent thinker and a risk-taker, proving his vision time and again.",
+    "duration": "12 Weeks",
+    "price": "Free of Cost",
+    "trainingLevel": "Everyone",
+    "isVideoMedium": "Urdu and English",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdepositphotos.com%2Fphotos%2Ffreelancing.html&psig=AOvVaw1GbM-pEqbLpvTjpknWgiX5&ust=1704312804928000&source=images&cd=vfe&ved=0CBIQjRxqFwoTCLi95YzCv4MDFQAAAAAdAAAAABAE"
+}
